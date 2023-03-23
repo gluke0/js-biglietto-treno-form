@@ -16,3 +16,47 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 - 2.433333 -> 2.43
 */
 
+// genera
+let generateButton = document.getElementById("generate");
+generateButton.addEventListener("click", function() {
+
+name = document.getElementById('name').value;
+surname = document.getElementById('surname').value;
+distance = document.getElementById('distance').value;
+age = document.getElementById('age').value;
+
+// prezzo
+rate = 0.21;
+standardPrice = distance * rate;
+
+// Sconto
+let off20 = standardPrice - (standardPrice * 0.2);
+let off40 = standardPrice - (standardPrice * 0.4);
+let offer = 'Standard';
+
+if (age == 'under18') {
+    total = off20;
+    offer = 'UNDER18';
+} else if (age == 'over65') {
+    total = off40;
+    offer = 'OVER65';
+} else {
+    total = standardPrice;
+}
+
+// ticket e carrozza
+let min = 75324;
+let max = 1323523;
+let discountCode = Math.floor(Math.random() * (max - min) ) + min;
+let carriageNumber = Math.floor((Math.random() * 10) + 1);
+
+// dati
+document.getElementById('passenger_name').innerHTML = name
+document.getElementById('discount_name').innerHTML = offer;
+document.getElementById('carriage').innerHTML = carriageNumber;
+document.getElementById('discount_code').innerHTML = discountCode;
+document.getElementById('price').innerHTML = total.toFixed(2) + '€';
+
+document.getElementById('ticket').className = 'show';
+});
+
