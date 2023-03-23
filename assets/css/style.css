@@ -97,3 +97,13 @@ table{
 .ticket button:hover{
     transform: scale(1.4);
 }
+
+.hidden{
+    display: none;
+    transition: all 0.3s linear;
+}
+
+.show{
+    display: block;
+    transition: all 0.3s linear;
+}
