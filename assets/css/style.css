@@ -89,9 +89,10 @@ table{
 }
   
 .ticket button{
-    background-color: rgb(51, 133, 66);
-    padding: 0.5rem 3rem;
+    background-color: rgb(101, 106, 102);
+    padding: 0.5rem 1rem;
     font-size: 2rem;
+    border-radius: 0;
 }
 
 .ticket button:hover{
