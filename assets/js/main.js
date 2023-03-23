@@ -20,19 +20,19 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 let generateButton = document.getElementById("generate");
 generateButton.addEventListener("click", function() {
 
-name = document.getElementById('name').value;
-surname = document.getElementById('surname').value;
-distance = document.getElementById('distance').value;
-age = document.getElementById('age').value;
+let name = document.getElementById('name').value;
+let surname = document.getElementById('surname').value;
+let distance = document.getElementById('distance').value;
+let age = document.getElementById('age').value;
 
 // prezzo
-rate = 0.21;
-standardPrice = distance * rate;
+const rate = 0.21;
+let standardPrice = distance * rate;
 
 // Sconto
 let off20 = standardPrice - (standardPrice * 0.2);
 let off40 = standardPrice - (standardPrice * 0.4);
-let offer = 'Standard';
+let offer = 'STANDARD';
 
 if (age == 'under18') {
     total = off20;
@@ -51,7 +51,7 @@ let discountCode = Math.floor(Math.random() * (max - min) ) + min;
 let carriageNumber = Math.floor((Math.random() * 10) + 1);
 
 // dati
-document.getElementById('passenger_name').innerHTML = name
+document.getElementById('passenger_name').innerHTML = `${name} ${surname}`;
 document.getElementById('discount_name').innerHTML = offer;
 document.getElementById('carriage').innerHTML = carriageNumber;
 document.getElementById('discount_code').innerHTML = discountCode;
@@ -60,3 +60,14 @@ document.getElementById('price').innerHTML = total.toFixed(2) + '€';
 document.getElementById('ticket').className = 'show';
 });
 
+// annulla
+let eraseButton = document.getElementById("delete");
+
+eraseButton.addEventListener("click", function() {
+document.getElementById('name').value = '';
+document.getElementById('surname').value = '';
+document.getElementById('distance').value = '';
+document.getElementById('age').value = '';
+
+document.getElementById('ticket').className = 'hidden';
+});
