@@ -22,7 +22,7 @@ generateButton.addEventListener("click", function() {
 
 let name = document.getElementById('name').value;
 let surname = document.getElementById('surname').value;
-let distance = document.getElementById('distance').value;
+let distance = parseFloat (document.getElementById('distance').value);
 let age = document.getElementById('age').value;
 
 // prezzo
@@ -48,12 +48,22 @@ if (age == 'under18') {
 let min = 75324;
 let max = 1323523;
 let discountCode = Math.floor(Math.random() * (max - min) ) + min;
-let carriageNumber = Math.floor((Math.random() * 10) + 1);
+let carriage = Math.floor((Math.random() * 10) + 1); 
+
+/* 
+function numeroRandomico(){
+    return Math.floor()Math.random() *10) +1;
+}
+
+function numeroRandomico(min, max){
+    return Math.floor()Math.random() *min) + max;
+}
+ */
 
 // dati
 document.getElementById('passenger_name').innerHTML = `${name} ${surname}`;
 document.getElementById('discount_name').innerHTML = offer;
-document.getElementById('carriage').innerHTML = carriageNumber;
+document.getElementById('carriage').innerHTML = carriage;
 document.getElementById('discount_code').innerHTML = discountCode;
 document.getElementById('price').innerHTML = total.toFixed(2) + '€';
 
